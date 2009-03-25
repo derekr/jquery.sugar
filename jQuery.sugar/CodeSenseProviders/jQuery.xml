@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@author Derek Reynolds
+-->
+<codesense>
+	
+	<provider>
+		<selector>js, js *</selector>
+		<completions>com.gridlee.js.jQuery.api</completions>
+		<complete-match>\.([a-zA-Z0-9-_])+</complete-match>
+	</provider>
+    
+    <provider>
+		<selector>js, js *</selector>
+		<completions>com.gridlee.js.jQuery.api.jQueryFunctions</completions>
+		<complete-match>\$\.([a-zA-Z0-9-_])+</complete-match>
+	</provider>
+    
+</codesense>

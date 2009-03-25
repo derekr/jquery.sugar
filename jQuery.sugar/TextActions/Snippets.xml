@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<action-recipes>
+	
+	<snippet id="com.macrabbit.TextActions.jQuery.Selector" category="tools.Snippets.jQuery">
+		<title>$.(selector)</title>
+		<text><![CDATA[\$.(${1:"${2:selector}"})]]></text>
+		<syntax-context>js, js *</syntax-context>
+		<text-trigger>$</text-trigger>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.jQuery.AnonymousFunction" category="tools.Snippets.jQuery">
+		<title>function () {...}</title>
+		<text><![CDATA[function(${1:params}) { ${0:/* code */} }]]></text>
+		<syntax-context>js, js *</syntax-context>
+		<text-trigger>fun</text-trigger>
+	</snippet>
+	
+</action-recipes>
