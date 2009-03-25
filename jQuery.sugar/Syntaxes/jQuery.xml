@@ -8,10 +8,9 @@
     <zones>
         <zone name="identifier.jQuery.object.selector">
             <starts-with>
-                <expression>(\$)(.)(\()</expression>
+                <expression>(\$)(\()</expression>
                 <capture number="1" name="operator.jQuery.object" />
-                <capture number="2" name="delimiter.js.period" />
-                <capture number="3" name="delimiter.js.parenthesis.open" />
+                <capture number="2" name="delimiter.js.parenthesis.open" />
             </starts-with>
             <ends-with>
                 <expression>\)</expression>
@@ -35,6 +34,7 @@
                 <capture number="0" name="delimiter.js.parenthesis.close" />
             </ends-with>
             <subzones>
+                <include syntax="self"/>
                 <include syntax="sourcecode.js" zone="js"/>
                 <include collection="delimiter.jQuery"/>
             </subzones>
@@ -113,6 +113,12 @@
         <collection name="delimiter.jQuery">
             <zone name="delimiter.jQuery.comma">
                 <expression>,</expression>
+            </zone>
+            <zone name="delimiter.jQuery.curly-brace.open">
+                <expression>{</expression>
+            </zone>
+            <zone name="delimiter.jQuery.curly-brace.close">
+                <expression>}</expression>
             </zone>
         </collection>
         
