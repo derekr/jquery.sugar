@@ -25,7 +25,6 @@
 			</behavior>
 		</completion>
 		
-		<completion string=".size" />
 		<completion string=".selector" />
 		<completion string=".context" />
 		
@@ -161,16 +160,6 @@
 		
 		<!-- Text -->
 		<completion string=".text">
-			<behavior>
-				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:val})</transform-into>
-				</append-dynamic>
-			</behavior>
-		</completion>
-		
-		<!-- Value -->
-		<completion string=".data">
 			<behavior>
 				<append-dynamic>
 				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
@@ -985,7 +974,7 @@
 			</behavior>
 		</completion>
 		
-		<!-- Customer -->
+		<!-- Custom -->
 		<completion string=".animate">
 			<behavior>
 				<append-dynamic>
