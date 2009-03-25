@@ -3,6 +3,12 @@
 	@placeholder js
 */
 
+/*
+@author Derek Reynolds <derekr@me.com>
+@version beta 1
+@copyright MIT License 2009
+*/
+
 @base {
 	color: #333;
 	background-color: #fff;
@@ -16,3 +22,5 @@ jQuery.function > name {
 jQuery.object.operator {
 	color: #699d36;
 }
+
+jQuery.selector operator

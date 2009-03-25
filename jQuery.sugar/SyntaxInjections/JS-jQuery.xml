@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 @author Derek Reynolds <derekr@me.com>
+@version beta 1
+@copyright MIT License 2009
 -->
 <injections>
     <!-- Injecting jQuery syntax in to JS -->
     <injection name="com.gridlee.injections.js.jquery" selector="js, js *" action="insert-before-target">
         <include syntax="js.jQuery" />
 	</injection>
-
+	
 </injections>

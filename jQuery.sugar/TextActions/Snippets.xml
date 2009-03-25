@@ -1,4 +1,9 @@
 <?xml version="1.0"?>
+<!--
+@author Derek Reynolds <derekr@me.com>
+@version beta 1
+@copyright MIT License 2009
+-->
 <action-recipes>
 	
 	<snippet id="com.macrabbit.TextActions.jQuery.Selector" category="tools.Snippets.jQuery">
