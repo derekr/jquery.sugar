@@ -52,6 +52,7 @@
                 <capture number="0" name="delimiter.js.parenthesis.close" />
             </ends-with>
             <subzones>
+                <include syntax="self"/>
                 <include syntax="sourcecode.js" zone="js"/>
                 <include collection="delimiter.jQuery"/>
             </subzones>
@@ -69,6 +70,7 @@
                 <capture number="0" name="delimiter.js.parenthesis.close" />
             </ends-with>
             <subzones>
+                <include syntax="self"/>
                 <include syntax="sourcecode.js" zone="js"/>
                 <include collection="delimiter.jQuery"/>
             </subzones>
@@ -86,6 +88,7 @@
                 <capture number="0" name="delimiter.js.parenthesis.close" />
             </ends-with>
             <subzones>
+                <include syntax="self"/>
                 <include syntax="sourcecode.js" zone="js"/>
                 <include collection="delimiter.jQuery"/>
             </subzones>
@@ -103,6 +106,7 @@
                 <capture number="0" name="delimiter.js.parenthesis.close" />
             </ends-with>
             <subzones>
+                <include syntax="self"/>
                 <include syntax="sourcecode.js" zone="js"/>
                 <include collection="delimiter.jQuery"/>
             </subzones>

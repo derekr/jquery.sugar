@@ -8,7 +8,7 @@
 	
 	<snippet id="com.macrabbit.TextActions.jQuery.Selector" category="tools.Snippets.jQuery">
 		<title>$.(selector)</title>
-		<text><![CDATA[\$.(${1:"${2:selector}"})$0;]]></text>
+		<text><![CDATA[\$${1:.}(${2:"${3:selector}"})$0;]]></text>
 		<syntax-context>js, js *</syntax-context>
 		<text-trigger>$</text-trigger>
 	</snippet>
