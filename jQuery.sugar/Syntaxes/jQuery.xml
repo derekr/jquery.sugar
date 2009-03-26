@@ -35,7 +35,7 @@
             </ends-with>
             <subzones>
                 <include syntax="self"/>
-                <include syntax="sourcecode.js" zone="js"/>
+                <include syntax="sourcecode.js" />
                 <include collection="delimiter.jQuery"/>
             </subzones>
         </zone>
@@ -53,7 +53,7 @@
             </ends-with>
             <subzones>
                 <include syntax="self"/>
-                <include syntax="sourcecode.js" zone="js"/>
+                <include syntax="sourcecode.js" />
                 <include collection="delimiter.jQuery"/>
             </subzones>
         </zone>
@@ -71,7 +71,7 @@
             </ends-with>
             <subzones>
                 <include syntax="self"/>
-                <include syntax="sourcecode.js" zone="js"/>
+                <include syntax="sourcecode.js" />
                 <include collection="delimiter.jQuery"/>
             </subzones>
         </zone>
@@ -89,7 +89,7 @@
             </ends-with>
             <subzones>
                 <include syntax="self"/>
-                <include syntax="sourcecode.js" zone="js"/>
+                <include syntax="sourcecode.js" />
                 <include collection="delimiter.jQuery"/>
             </subzones>
         </zone>
@@ -107,7 +107,7 @@
             </ends-with>
             <subzones>
                 <include syntax="self"/>
-                <include syntax="sourcecode.js" zone="js"/>
+                <include syntax="sourcecode.js" />
                 <include collection="delimiter.jQuery"/>
             </subzones>
         </zone>
