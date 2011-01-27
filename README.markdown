@@ -24,7 +24,7 @@ TODO: Write description of usage.
 
 
 
-## [The MIT License](http://www.opensource.org/licenses/mit-license.php) ##
+## The MIT License ##
 
 Copyright (c) 2009 [Derek Reynolds](https://github.com/derekr)
 
