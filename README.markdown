@@ -1,6 +1,6 @@
 # jQuery sugar for Espresso  #
 
-[jQuery](http://jquery.com/) [sugar](http://macrabbit.com/espresso/extend/) for Macrabbit's [Espresso](http://macrabbit.com/espresso/) code editor.
+[jQuery](http://jquery.com/) [sugar](http://macrabbit.com/espresso/extend/) for MacRabbit's [Espresso](http://macrabbit.com/espresso/) code editor.
 
 Version: beta 1
 
