@@ -6,14 +6,14 @@
 -->
 <action-recipes>
 	
-	<snippet id="com.macrabbit.TextActions.jQuery.Selector" category="tools.Snippets.jQuery">
+	<snippet id="com.macrabbit.TextActions.jQuery.Selector" category="tools.Snippets">
 		<title>$.(selector)</title>
 		<text><![CDATA[\$${1:.}(${2:"${3:selector}"})$0;]]></text>
 		<syntax-context>js, js *</syntax-context>
 		<text-trigger>$</text-trigger>
 	</snippet>
 	
-	<snippet id="com.macrabbit.TextActions.jQuery.AnonymousFunction" category="tools.Snippets.jQuery">
+	<snippet id="com.macrabbit.TextActions.jQuery.AnonymousFunction" category="tools.Snippets">
 		<title>function () {...}</title>
 		<text><![CDATA[function(${1:params}) { ${0:/* code */} }]]></text>
 		<syntax-context>js, js *</syntax-context>
