@@ -91,6 +91,7 @@
                 <include syntax="self"/>
                 <include syntax="sourcecode.js" />
                 <include collection="delimiter.jQuery"/>
+                <include collection="literal.string"/>
             </subzones>
         </zone>
         
