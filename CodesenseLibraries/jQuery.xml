@@ -1,1119 +1,1113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-@author Derek Reynolds <derekr@me.com>
-@version beta 1
-@copyright MIT License 2009
--->
 <codesense version="1.0">
 
-    <set name="com.gridlee.js.jQuery.api">
+    <set name="com.whatupderek.sugar.jquery.api">
         <!-- jQuery Core: http://docs.jquery.com/Core -->
         <!-- Object Accessors -->
-        <completion string=".each">
+        <completion string="each">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:callback})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:callback}\)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".size">
+		<completion string="size">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>($1)</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::($1\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".selector" />
-		<completion string=".context" />
+		<completion string="context" />
 		
-		<completion string=".eq">
+		<completion string="eq">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:position})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:position}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".get">
+		<completion string="get">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:index})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:index}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".index">
+		<completion string="index">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:subject})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:subject}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Data -->
-		<completion string=".data">
+		<completion string="data">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:name}${2:, ${3:value}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:name}${2:, ${3:value}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".removeData">
+		<completion string="removeData">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:name})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:name}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".queue">
+		<completion string="queue">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:name}${2:, ${3:callback|queue}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:name}${2:, ${3:callback|queue}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".dequeue">
+		<completion string="dequeue">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:name})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:name}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Attr -->
-		<completion string=".attr">
+		<completion string="attr">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:name|key|properties}${2:, ${3:value|fn}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:name|key|properties}${2:, ${3:value|fn}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".removeAttr">
+		<completion string="removeAttr">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:name})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:name}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Class -->
-		<completion string=".addClass">
+		<completion string="addClass">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:class})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:class}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".hasClass">
+		<completion string="hasClass">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:class})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:class}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".removeClass">
+		<completion string="removeClass">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:class})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:class}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".toggleClass">
+		<completion string="toggleClass">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:name}${2:, ${3:switch}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:name}${2:, ${3:switch}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- HTML -->
-		<completion string=".html">
+		<completion string="html">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:val})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:val}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Text -->
-		<completion string=".text">
+		<completion string="text">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:val})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:val}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Filtering -->
-		<completion string=".filter">
+		<completion string="filter">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr|fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr|fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".is">
+		<completion string="is">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".map">
+		<completion string="map">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:callback})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:callback}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".not">
+		<completion string="not">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".slice">
+		<completion string="slice">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:start}${2:, ${3:end}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:start}${2:, ${3:end}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Finding -->
-		<completion string=".add">
+		<completion string="add">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".children">
+		<completion string="children">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".closest">
+		<completion string="closest">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".contents">
+		<completion string="contents">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>($1)</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::($1\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".find">
+		<completion string="find">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".next">
+		<completion string="next">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".nextAll">
+		<completion string="nextAll">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".offsetParent">
+		<completion string="offsetParent">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>($1)</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::($1\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".parent">
+		<completion string="parent">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".parents">
+		<completion string="parents">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".prev">
+		<completion string="prev">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".prevAll">
+		<completion string="prevAll">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".siblings">
+		<completion string="siblings">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Chaining -->
-		<completion string=".andSelf">
+		<completion string="andSelf">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>($1)</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::($1\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".end">
+		<completion string="end">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>()</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Manipulation -->
 		<!-- Inserting Inside -->
-		<completion string=".append">
+		<completion string="append">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:content})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:content}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".appendTo">
+		<completion string="appendTo">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:selector})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:selector}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".prepend">
+		<completion string="prepend">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:content})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:content}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".prependTo">
+		<completion string="prependTo">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:selector})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:selector}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Inserting Outside -->
-		<completion string=".after">
+		<completion string="after">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:content})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:content}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".before">
+		<completion string="before">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:content})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:content}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".insertAfter">
+		<completion string="insertAfter">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:content})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:content}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".insertBefore">
+		<completion string="insertBefore">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:content})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:content}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Inserting Around -->
-		<completion string=".wrap">
+		<completion string="wrap">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:html|elem})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:html|elem}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".wrapAll">
+		<completion string="wrapAll">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:html|elem})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:html|elem}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".wrapInner">
+		<completion string="wrapInner">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:html|elem})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:html|elem}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Replacing -->
-		<completion string=".replaceWith">
+		<completion string="replaceWith">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:content})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:content}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".replaceAll">
+		<completion string="replaceAll">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:selector})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:selector}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Removing -->
-		<completion string=".empty">
+		<completion string="empty">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>($1)</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::($1\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".remove">
+		<completion string="remove">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:expr})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:expr}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Copying -->
-		<completion string=".clone">
+		<completion string="clone">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:bool})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:bool}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- CSS -->
-		<completion string=".css">
+		<completion string="css">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:name|properties}${2:, ${3:value}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:name|properties}${2:, ${3:value}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Positioning -->
-		<completion string=".offset">
+		<completion string="offset">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>($1)</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::($1\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".position">
+		<completion string="position">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>($1)</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::($1\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".scrollTop">
+		<completion string="scrollTop">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:val})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:val}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".scrollLeft">
+		<completion string="scrollLeft">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:val})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:val}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Height and Width -->
-		<completion string=".height">
+		<completion string="height">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:val})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:val}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".width">
+		<completion string="width">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:val})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:val}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".innerHeight">
+		<completion string="innerHeight">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>($1)</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::($1\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".innerWidth">
+		<completion string="innerWidth">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>($1)</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::($1\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".outerHeight">
+		<completion string="outerHeight">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:margin})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:margin}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".outerWidth">
+		<completion string="outerWidth">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:margin})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:margin}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Events -->
 		<!-- Page Load -->
-		<completion string=".ready">
+		<completion string="ready">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Event Handling -->
-		<completion string=".bind">
+		<completion string="bind">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:type}${2:, ${3:data}}, ${4:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:type}${2:, ${3:data}}, ${4:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".one">
+		<completion string="one">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:type}${2:, ${3:data}}, ${4:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:type}${2:, ${3:data}}, ${4:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".trigger">
+		<completion string="trigger">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:event}${2:, ${3:data}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:event}${2:, ${3:data}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".triggerHandler">
+		<completion string="triggerHandler">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:event}${2:, ${3:data}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:event}${2:, ${3:data}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".unbind">
+		<completion string="unbind">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:${2:name}${3:, ${4:value}}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:${2:name}${3:, ${4:value}}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Live Events -->
-		<completion string=".live">
+		<completion string="live">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:type}${2:, ${3:fn}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:type}${2:, ${3:fn}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".die">
+		<completion string="die">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:${2:type}${3:, ${4:fn}}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:${2:type}${3:, ${4:fn}}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Interaction Helpers -->
-		<completion string=".hover">
+		<completion string="hover">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:over}${2:, ${3:out}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:over}${2:, ${3:out}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".toggle">
+		<completion string="toggle">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:switch|speed}${2:, ${3:callback}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:switch|speed}${2:, ${3:callback}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Event Helpers -->
-		<completion string=".blur">
+		<completion string="blur">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".change">
+		<completion string="change">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".click">
+		<completion string="click">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".dblclick">
+		<completion string="dblclick">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".error">
+		<completion string="error">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".focus">
+		<completion string="focus">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".keydown">
+		<completion string="keydown">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".keypress">
+		<completion string="keypress">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".keyup">
+		<completion string="keyup">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".load">
+		<completion string="load">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".mousedown">
+		<completion string="mousedown">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".mouseenter">
+		<completion string="mouseenter">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".mouseleave">
+		<completion string="mouseleave">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".mousemove">
+		<completion string="mousemove">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".mouseout">
+		<completion string="mouseout">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".mouseover">
+		<completion string="mouseover">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".mouseup">
+		<completion string="mouseup">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".resize">
+		<completion string="resize">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".scroll">
+		<completion string="scroll">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".select">
+		<completion string="select">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".submit">
+		<completion string="submit">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".unload">
+		<completion string="unload">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:fn})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:fn}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Effect -->
 		<!-- Basics -->
-		<completion string=".show">
+		<completion string="show">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:speed}${2:, ${3:callback}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:speed}${2:, ${3:callback}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".hide">
+		<completion string="hide">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:speed}${2:, ${3:callback}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:speed}${2:, ${3:callback}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Sliding -->
-		<completion string=".slideDown">
+		<completion string="slideDown">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:speed}${2:, ${3:callback}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:speed}${2:, ${3:callback}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".slideUp">
+		<completion string="slideUp">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:speed}${2:, ${3:callback}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:speed}${2:, ${3:callback}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".slideToggle">
+		<completion string="slideToggle">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:speed}${2:, ${3:callback}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:speed}${2:, ${3:callback}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Fading -->
-		<completion string=".fadeIn">
+		<completion string="fadeIn">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:speed}${2:, ${3:callback}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:speed}${2:, ${3:callback}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".fadeOut">
+		<completion string="fadeOut">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:speed}${2:, ${3:callback}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:speed}${2:, ${3:callback}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".fadeTo">
+		<completion string="fadeTo">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:speed}, ${2:opacity}${3:, ${4:callback}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:speed}, ${2:opacity}${3:, ${4:callback}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Custom -->
-		<completion string=".animate">
+		<completion string="animate">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:params}${2:${3:, ${4:duration}${5:, ${6:easing}${7:, ${8:callback}}}}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:params}${2:${3:, ${4:duration}${5:, ${6:easing}${7:, ${8:callback}}}}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".stop">
+		<completion string="stop">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:clearQueue}${2:, ${3:gotoEnd}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:clearQueue}${2:, ${3:gotoEnd}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Ajax Events -->
-		<completion string=".ajaxComplete">
+		<completion string="ajaxComplete">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:callback})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:callback}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".ajaxError">
+		<completion string="ajaxError">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:callback})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:callback}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".ajaxSend">
+		<completion string="ajaxSend">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:callback})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:callback}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".ajaxStop">
+		<completion string="ajaxStop">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:callback})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:callback}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".ajaxSuccess">
+		<completion string="ajaxSuccess">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:callback})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:callback}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
 		<!-- Misc -->
-		<completion string=".serialize">
+		<completion string="serialize">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>($1)</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::($1\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string=".serializeArray">
+		<completion string="serializeArray">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>($1)</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::($1\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
     </set>
     
-    <set name="com.gridlee.js.jQuery.api.jQueryFunctions">
+    <set name="com.whatupderek.sugar.jquery.api.jQueryFunctions">
         <!-- Ajax -->
-        <completion string="$.ajax">
+        <completion string="ajax">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:options))</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:options)\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string="$.get">
+		<completion string="get">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:url}${2:${3:, ${4:data}${5:, ${6:callback}${7:, ${8:type}}}}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:url}${2:${3:, ${4:data}${5:, ${6:callback}${7:, ${8:type}}}}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string="$.getJSON">
+		<completion string="getJSON">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:url}${2:${3:, ${4:data}${5:, ${6:callback}}}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:url}${2:${3:, ${4:data}${5:, ${6:callback}}}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string="$.getScript">
+		<completion string="getScript">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:url}${2:, ${3:callback}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:url}${2:, ${3:callback}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string="$.post">
+		<completion string="post">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:url}${2:${3:, ${4:data}${5:, ${6:callback}${7:, ${8:type}}}}})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:url}${2:${3:, ${4:data}${5:, ${6:callback}${7:, ${8:type}}}}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		
-		<completion string="$.ajaxSetup">
+		<completion string="ajaxSetup">
 			<behavior>
 				<append-dynamic>
-				    <matched-suffix>(\s*:)|[^:]</matched-suffix>
-					<transform-into>(${1:options})</transform-into>
+				    <matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:options}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
