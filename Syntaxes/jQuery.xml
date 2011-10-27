@@ -37,6 +37,7 @@
                 <include syntax="self"/>
                 <include syntax="sourcecode.js" />
                 <include collection="delimiter.jQuery"/>
+                <include collection="literal.string"/>
             </subzones>
         </zone>
         
@@ -55,6 +56,7 @@
                 <include syntax="self"/>
                 <include syntax="sourcecode.js" />
                 <include collection="delimiter.jQuery"/>
+                <include collection="literal.string"/>
             </subzones>
         </zone>
         
@@ -73,6 +75,7 @@
                 <include syntax="self"/>
                 <include syntax="sourcecode.js" />
                 <include collection="delimiter.jQuery"/>
+                <include collection="literal.string"/>
             </subzones>
         </zone>
         
@@ -110,6 +113,7 @@
                 <include syntax="self"/>
                 <include syntax="sourcecode.js" />
                 <include collection="delimiter.jQuery"/>
+                <include collection="literal.string"/>
             </subzones>
         </zone>
     </zones>
@@ -245,7 +249,7 @@
                     <capture number="0" name="delimiter.balanced.quote.single.end"/>
                 </ends-with>
                 <subzones>
-                    <include collection="selectors.jQuery" />
+<!--                    <include collection="selectors.jQuery" /> -->
                     <zone name="literal.escape.brief">
                         <!-- 'A single-quoted string with \'escape sequences\'' -->
                         <expression>(\\)('|\\)</expression>
@@ -265,7 +269,7 @@
                     <capture number="0" name="delimiter.balanced.quote.double.begin"/>
                 </ends-with>
                 <subzones>
-                    <include collection="selectors.jQuery" />
+<!--                    <include collection="selectors.jQuery" />-->
                     <zone name="literal.escape.brief">
                         <!-- 'A single-quoted string with \'escape sequences\'' -->
                         <expression>(\\)("|\\)</expression>

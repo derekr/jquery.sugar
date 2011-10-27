@@ -9,9 +9,14 @@
 @copyright MIT License 2009
 */
 
-@base {
+/*@base {
 	color: #333;
 	background-color: #fff;
+}*/
+
+jQuery {
+	color: #333;
+	border: 1px solid #333;
 }
 
 jQuery.function > name {
@@ -23,4 +28,6 @@ jQuery.object.operator {
 	color: #699d36;
 }
 
-jQuery.selector operator
+jQuery.selector operator {
+	color: pink;	
+}
