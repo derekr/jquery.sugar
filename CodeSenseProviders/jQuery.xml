@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-@author Derek Reynolds <derekr@me.com>
-@version beta 1
-@copyright MIT License 2009
--->
 <codesense>
 	
 	<provider>
-		<selector>js, js *</selector>
-		<completions>com.gridlee.js.jQuery.api</completions>
-		<complete-match>\.([a-zA-Z0-9-_])+</complete-match>
+		<selector>js, js *:not(string,string *,comment,regex,regex *)</selector>
+		<completions>com.whatupderek.sugar.jquery.api</completions>
+		<complete-match capture="1">\.([a-zA-Z]*)</complete-match>
 	</provider>
     
     <provider>
-		<selector>js, js *</selector>
-		<completions>com.gridlee.js.jQuery.api.jQueryFunctions</completions>
-		<complete-match>\$\.([a-zA-Z0-9-_])+</complete-match>
+		<selector>js, js *:not(string,string *,comment,regex,regex *)</selector>
+		<completions>com.whatupderek.sugar.jquery.api.jQueryFunctions</completions>
+		<complete-match capture="1">(?:\$|jQuery)\.([a-zA-Z]*)</complete-match>
 	</provider>
     
 </codesense>
