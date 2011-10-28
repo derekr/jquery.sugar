@@ -1,32 +1,21 @@
-# jQuery sugar for Espresso  #
+# jQuery.sugar for Espresso
 
-[jQuery](http://jquery.com/) [sugar](http://macrabbit.com/espresso/extend/) for MacRabbit's [Espresso](http://macrabbit.com/espresso/) code editor.
+jQuery.sugar adds autocompletion for [jQuery](http://jquery.com) methods to MacRabbit's [Espresso](http://macrabbit.com/espresso/) text editor for Mac.
 
-Version: beta 1
+## Installation
 
+**Requires Espresso 2**
 
+The easiest way to install jQuery.sugar currently is directly from GitHub:
 
-## Features ##
+    cd ~/Library/Application\ Support/Espresso/Sugars
+    git clone git://github.com/derekr/jquery.sugar.git
 
-TODO: Write list of features.
+Alternatively, you can [download the project](https://github.com/derekr/jquery.sugar/zipball/master), decompress it, rename the folder to "jQuery.sugar" and double click it to install in Espresso.
 
+## MIT License
 
-## Sample of usage ##
-
-TODO: Write description of usage.
-
-
-
-## Requirements ##
-
-* [Espresso](http://macrabbit.com/espresso/) version: 1.0+
-
-
-
-
-## The MIT License ##
-
-Copyright (c) 2009 [Derek Reynolds](https://github.com/derekr)
+Copyright (c) 2009-2001 [Derek Reynolds](https://github.com/derekr)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
