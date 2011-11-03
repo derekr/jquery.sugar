@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <codesense>
-	
 	<provider>
 		<selector>js, js *:not(string,string *,comment,regex,regex *)</selector>
 		<completions>com.whatupderek.sugar.jquery.api</completions>
-		<complete-match capture="1">\.([a-zA-Z]*)</complete-match>
+		<complete-match capture="1">\)\.([a-zA-Z]*)</complete-match>
 	</provider>
-    
-    <provider>
+	<provider>
 		<selector>js, js *:not(string,string *,comment,regex,regex *)</selector>
 		<completions>com.whatupderek.sugar.jquery.api.jQueryFunctions</completions>
 		<complete-match capture="1">(?:\$|jQuery)\.([a-zA-Z]*)</complete-match>
 	</provider>
-    
+	<provider>
+		<selector>js, js *:not(string,string *,comment,regex,regex *)</selector>
+		<completions>com.whatupderek.sugar.jquery.api.jQueryEvents</completions>
+		<complete-match capture="1">event\.([a-zA-Z]*)</complete-match>
+	</provider>
 </codesense>

@@ -1,33 +1,25 @@
 /*
-	@theme PHP Placeholder
-	@placeholder js
+    @theme jQuery Placeholder
+    @placeholder js
 */
 
-/*
-@author Derek Reynolds <derekr@me.com>
-@version beta 1
-@copyright MIT License 2009
-*/
-
-/*@base {
-	color: #333;
-	background-color: #fff;
-}*/
-
-jQuery {
-	color: #333;
-	border: 1px solid #333;
+js, jQuery {
+    spell-check: disabled;
 }
 
-jQuery.function > name {
-	color: #4e279a;
+variable.function {
 	font-weight: bold;
 }
 
 jQuery.object.operator {
-	color: #699d36;
+	color: #0F67A1;
+	font-weight: bold;
 }
 
-jQuery.selector operator {
-	color: pink;	
+string jQuery.selector {
+	font-weight: normal;
+}
+
+jQuery.function > name {
+	font-weight: bold;
 }
