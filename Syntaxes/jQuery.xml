@@ -1,284 +1,505 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 @author Derek Reynolds <derekr@me.com>
 @version beta 1
 @copyright MIT License 2009
 -->
 <syntax name="js.jQuery">
-    <zones>
-        <zone name="identifier.jQuery.object.selector">
-            <starts-with>
-                <expression>(\$)(\()</expression>
-                <capture number="1" name="operator.jQuery.object" />
-                <capture number="2" name="delimiter.js.parenthesis.open" />
-            </starts-with>
-            <ends-with>
-                <expression>\)</expression>
-                <capture number="0" name="delimiter.js.parenthesis.close" />
-            </ends-with>
-            <subzones>
-                <include collection="literal.string"/>
-            </subzones>
-        </zone>
-        
-        <zone name="identifier.jQuery.ajax.function">
-            <starts-with>
-                <expression>(((\$)(\.)(ajax(Setup)?|get(JSON|Script)?|post))|((\.)(ajax(Complete|Error|Send|Stop|Success)+|serialize(Arry)?)))(\()</expression>
-                <capture number="3" name="operator.jQuery.object" />
-                <capture number="4" name="delimiter.js.period" />
-                <capture number="5" name="function.name" />
-                <capture number="13" name="delimiter.js.parenthesis.open" />
-            </starts-with>
-            <ends-with>
-                <expression>\)</expression>
-                <capture number="0" name="delimiter.js.parenthesis.close" />
-            </ends-with>
-            <subzones>
-                <include syntax="self"/>
-                <include syntax="sourcecode.js" />
-                <include collection="delimiter.jQuery"/>
-                <include collection="literal.string"/>
-            </subzones>
-        </zone>
-        
-        <zone name="identifier.jQuery.event.function">
-            <starts-with>
-                <expression>(\.)(ready|bind|one|(trigger(Handler)?)|unbind|live|die|hover|toggle|blur|change|click|dblclick|error|focus|keydown|keypress|keyup|load|(mouse(down|enter|leave|move|out|over|up)+)|resize|scroll|select|submit|unload|show|hide|(slide(Down|Up|Toggle)+)|(fade(In|Out|To)+)|animate|stop)(\()</expression>
-                <capture number="1" name="delimiter.js.period" />
-                <capture number="2" name="function.name" />
-                <capture number="11" name="delimiter.js.parenthesis.open" />
-            </starts-with>
-            <ends-with>
-                <expression>\)</expression>
-                <capture number="0" name="delimiter.js.parenthesis.close" />
-            </ends-with>
-            <subzones>
-                <include syntax="self"/>
-                <include syntax="sourcecode.js" />
-                <include collection="delimiter.jQuery"/>
-                <include collection="literal.string"/>
-            </subzones>
-        </zone>
-        
-        <zone name="identifier.jQuery.manipulation.function">
-            <starts-with>
-                <expression>(\.)(append(To)?|prepend(To)?|after|before|insert(After|Before)+|wrap(All|Inner)?|replace(With|All)+|empty|remove|clone|css|offset|position|scroll(Top|Left)+|height|width|(inner|outer)(Width|Height))(\()</expression>
-                <capture number="1" name="delimiter.js.period" />
-                <capture number="2" name="function.name" />
-                <capture number="11" name="delimiter.js.parenthesis.open" />
-            </starts-with>
-            <ends-with>
-                <expression>\)</expression>
-                <capture number="0" name="delimiter.js.parenthesis.close" />
-            </ends-with>
-            <subzones>
-                <include syntax="self"/>
-                <include syntax="sourcecode.js" />
-                <include collection="delimiter.jQuery"/>
-                <include collection="literal.string"/>
-            </subzones>
-        </zone>
-        
-        <zone name="identifier.jQuery.data.function">
-            <starts-with>
-                <expression>(\.)(data|removeData|((de)?queue)|attr|removeAttr|((add|has|remove|toggle)+Class)|html|text|filter|is|map|not|slice|add|children|closest|contents|find|(next(All)?)|offSetParent|parent(s)?|prev(All)?|siblings|andSelf|end)(\()</expression>
-                <capture number="1" name="delimiter.js.period" />
-                <capture number="2" name="function.name" />
-                <capture number="11" name="delimiter.js.parenthesis.open" />
-            </starts-with>
-            <ends-with>
-                <expression>\)</expression>
-                <capture number="0" name="delimiter.js.parenthesis.close" />
-            </ends-with>
-            <subzones>
-                <include syntax="self"/>
-                <include syntax="sourcecode.js" />
-                <include collection="delimiter.jQuery"/>
-                <include collection="literal.string"/>
-            </subzones>
-        </zone>
-        
-        <zone name="identifier.jQuery.object-accessors.function">
-            <starts-with>
-                <expression>(\.)(each|size|eq|get|index)(\()</expression>
-                <capture number="1" name="delimiter.js.period" />
-                <capture number="2" name="function.name" />
-                <capture number="3" name="delimiter.js.parenthesis.open" />
-            </starts-with>
-            <ends-with>
-                <expression>\)</expression>
-                <capture number="0" name="delimiter.js.parenthesis.close" />
-            </ends-with>
-            <subzones>
-                <include syntax="self"/>
-                <include syntax="sourcecode.js" />
-                <include collection="delimiter.jQuery"/>
-                <include collection="literal.string"/>
-            </subzones>
-        </zone>
-    </zones>
-    
-    <library>
-        <collection name="delimiter.jQuery">
-            <zone name="delimiter.jQuery.comma">
-                <expression>,</expression>
-            </zone>
-            <zone name="delimiter.jQuery.curly-brace.open">
-                <expression>{</expression>
-            </zone>
-            <zone name="delimiter.jQuery.curly-brace.close">
-                <expression>}</expression>
-            </zone>
-        </collection>
-        
-        <collection name="selectors.jQuery">        
-            <zone name="operator.selector.jQuery.id">
-                <expression>(#)([a-zA-Z-_0-9]*)</expression>
-                <capture number="1" name="operator.hash" />
-                <capture number="2" name="id.name" />
-            </zone>
-            
-            <zone name="operator.selector.jQuery.class">
-                <expression>(\.)([a-zA-Z-_0-9]*)</expression>
-                <capture number="1" name="operator.hash" />
-                <capture number="2" name="class.name" />
-            </zone>
-            
-            <zone name="operator.selector.jQuery.child">
-                <expression>\></expression>
-            </zone>
-            
-            <zone name="operator.selector.jQuery.next">
-                <expression>\+</expression>
-            </zone>
-            
-            <zone name="operator.selector.jQuery.sibling">
-                <expression>\~</expression>
-            </zone>
-            
-            <zone name="operator.selector.jQuery.child.filter.parameters">
-                <starts-with>
-                    <expression>(:(nth-child)\()</expression>
-                    <capture number="2" name="filter.name" />
-                </starts-with>
-                <ends-with>
-                    <expression>(\))</expression>
-                </ends-with>
-                <subzones>
-                    <include collection="selectors.jQuery" />
-                </subzones>
-            </zone>
-            
-            <zone name="operator.selector.jQuery.child.filter">
-                <expression>:((first|last|only)-child)</expression>
-                <capture number="1" name="filter.name" />
-            </zone>
-            
-            <zone name="operator.selector.jQuery.basic.filter.parameters">
-                <starts-with>
-                    <expression>(:(not|eq|gt|lt)\()</expression>
-                    <capture number="2" name="filter.name" />
-                </starts-with>
-                <ends-with>
-                    <expression>(\))</expression>
-                </ends-with>
-                <subzones>
-                    <include collection="selectors.jQuery" />
-                </subzones>
-            </zone>
-            
-            <zone name="operator.selector.jQuery.basic.filter">
-                <expression>:(first|last|even|odd|header|animated)</expression>
-                <capture number="1" name="filter.name" />
-            </zone>
-            
-            <zone name="operator.selector.jQuery.content.filter.parameters">
-                <starts-with>
-                    <expression>(:(contains|has)\()</expression>
-                    <capture number="2" name="filter.name" />
-                </starts-with>
-                <ends-with>
-                    <expression>(\))</expression>
-                </ends-with>
-                <subzones>
-                    <include collection="selectors.jQuery" />
-                </subzones>
-            </zone>
-            
-            <zone name="operator.selector.jQuery.content.filter">
-                <expression>:(empty|parent)</expression>
-                <capture number="1" name="filter.name" />
-            </zone>
-            
-            <zone name="operator.selector.jQuery.visibility.filter">
-                <expression>:(hidden|visible)</expression>
-                <capture number="1" name="filter.name" />
-            </zone>
-            
-            <zone name="operator.selector.jQuery.form.filter">
-                <expression>:(input|text|password|radio|checkbox|submit|image|reset|button|file|hidden|enabled|disabled|checked|selected)</expression>
-                <capture number="1" name="filter.name" />
-            </zone>
-            
-            <zone name="operator.selector.jQuery.attribute.filter">
-                <expression>(\[)([a-zA-Z]*)((\^)|(\$)|(\*))(=)([a-zA-Z0-9-_]*)(\])</expression>
-                <capture number="1" name="delimiter.bracket.open" />
-                <capture number="2" name="attribute.name" />
-                <capture number="4" name="operator.starts-with" />
-                <capture number="5" name="operator.ends-with" />
-                <capture number="6" name="operator.contains" />
-                <capture number="7" name="operator.equals" />
-                <capture number="8" name="value" />
-                <capture number="9" name="delimiter.bracket.close" />
-            </zone>
-            
-            <zone name="operator.selector.jQuery.element">
-                <expression>[a-zA-Z]+</expression>
-                <capture number="0" name="element.name" />
-            </zone>
-        </collection>
-        
-        <collection name="literal.string">
-            <zone name="literal.string.quoted.single">
-                <starts-with>
-                    <expression>'</expression>
-                    <capture number="0" name="delimiter.balanced.quote.single.begin"/>
-                </starts-with>
-                <ends-with>
-                    <expression>'</expression>
-                    <capture number="0" name="delimiter.balanced.quote.single.end"/>
-                </ends-with>
-                <subzones>
-<!--                    <include collection="selectors.jQuery" /> -->
-                    <zone name="literal.escape.brief">
-                        <!-- 'A single-quoted string with \'escape sequences\'' -->
-                        <expression>(\\)('|\\)</expression>
-                        <capture number="1" name="delimiter.seperator.escape"/>
-                        <capture number="2" name="character"/>
-                    </zone>
-                </subzones>
-            </zone>
-            
-            <zone name="literal.string.quoted.double">
-                <starts-with>
-                    <expression>"</expression>
-                    <capture number="0" name="delimiter.balanced.quote.double.begin"/>
-                </starts-with>
-                <ends-with>
-                    <expression>"</expression>
-                    <capture number="0" name="delimiter.balanced.quote.double.begin"/>
-                </ends-with>
-                <subzones>
-<!--                    <include collection="selectors.jQuery" />-->
-                    <zone name="literal.escape.brief">
-                        <!-- 'A single-quoted string with \'escape sequences\'' -->
-                        <expression>(\\)("|\\)</expression>
-                        <capture number="1" name="delimiter.seperator.escape"/>
-                        <capture number="2" name="character"/>
-                    </zone>
-                </subzones>
-            </zone>
-
-	    </collection>
-    </library>
+	<zones>
+		<zone name="identifier.jQuery.object.selector">
+			<starts-with>
+				<expression>(\$|jQuery)(\()</expression>
+				<capture number="1" name="operator.jQuery.object"/>
+				<capture number="2" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include collection="literal.string.jQuery"/>
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.ajax.function">
+			<starts-with>
+				<expression>(((\$)(\.)(ajax(Prefilter|Setup)?|get(JSON|Script)?|param|post))|((\.)(ajax(Complete|Error|Send|Stop|Success)+|load|serialize(Array)?)))(\()</expression>
+				<capture number="3" name="operator.jQuery.object"/>
+				<capture number="4" name="delimiter.js.period"/>
+				<capture number="5" name="function.name"/>
+				<capture number="9" name="delimiter.js.period"/>
+				<capture number="10" name="function.name"/>
+				<capture number="13" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.attributes.function">
+			<starts-with>
+				<expression>(\.)((add|has|toggle|remove)+Class|attr|html|prop|remove(Attr|Prop)+|val)(\()</expression>
+				<capture number="1" name="delimiter.js.period"/>
+				<capture number="2" name="function.name"/>
+				<capture number="5" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+				<include collection="literal.string.jQuery"/>
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.callbacks.function">
+			<starts-with>
+				<expression>(\$)(\.)(Callbacks)(\()</expression>
+				<capture number="1" name="operator.jQuery.object"/>
+				<capture number="2" name="delimiter.js.period"/>
+				<capture number="3" name="function.name"/>
+				<capture number="4" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+				
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.callbacks.object">
+			<starts-with>
+				<expression>(callbacks)(\.)(add|disable|empty|fire|fired|fireWith|has|lock|locked|remove)(\()</expression>
+				<capture number="1" name="variable"/>
+				<capture number="2" name="delimiter.js.period"/>
+				<capture number="3" name="function.name"/>
+				<capture number="4" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.core.function">
+			<starts-with>
+				<expression>(\$)(\.)(holdReady|noConflict|sub|when)(\()</expression>
+				<capture number="1" name="operator.jQuery.object"/>
+				<capture number="2" name="delimiter.js.period"/>
+				<capture number="3" name="function.name"/>
+				<capture number="4" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+				
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery-hook.css.function">
+			<expression>(\$)(\.)(cssHooks)</expression>
+			<capture number="1" name="operator.jQuery.object"/>
+			<capture number="2" name="delimiter.js.period"/>
+			<capture number="3" name="function.name"/>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+				
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.css.function">
+			<starts-with>
+				<expression>(\.)(css|height|(inner|outer)(Width|Height)|offset|position|scroll(Left|Top)+|width)(\()</expression>
+				<capture number="1" name="delimiter.js.period"/>
+				<capture number="2" name="function.name"/>
+				<capture number="6" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+				
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.data.function">
+			<starts-with>
+				<expression>(((\$)(\.)(data|((de)?queue)|(has|remove)+Data))|((\.)(clearQueue|data|((de)?queue)|removeData)))(\()</expression>
+				<capture number="3" name="operator.jQuery.object"/>
+				<capture number="4" name="delimiter.js.period"/>
+				<capture number="5" name="function.name"/>
+				<capture number="10" name="delimiter.js.period"/>
+				<capture number="11" name="function.name"/>
+				<capture number="14" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.deffered.function">
+			<starts-with>
+				<expression>(\.)(done|fail|is(Rejected|Resolved)+|notify(With)?|pipe|progress|reject(With)?|resolve(With)?|state|then|promise)(\()</expression>
+				<capture number="1" name="delimiter.js.period"/>
+				<capture number="2" name="function.name"/>
+				<capture number="7" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.effects.function">
+			<starts-with>
+				<expression>(((\$)(\.)(fx\.(interval|off)+))|((\.)(animate|delay|fade(In|Out|To|Toggle)+|hide|show|slide(Down|Toggle|Up)+|stop|toggle)))(\()</expression>
+				<capture number="3" name="operator.jQuery.object"/>
+				<capture number="4" name="delimiter.js.period"/>
+				<capture number="5" name="function.name"/>
+				<capture number="8" name="delimiter.js.period"/>
+				<capture number="9" name="function.name"/>
+				<capture number="12" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.events.function">
+			<starts-with>
+				<expression>(((\$)(\.)(proxy))|((\.)((un)?bind|blur|change|click|dblclick|(un)?delegate|die|error|focus(in|out)?|hover|key(down|press|up)+|live|(un)?load|mouse(down|enter|leave|move|out|over|up)+|off|on|one|ready|resize|scroll|select|submit|toggle|trigger(Handler)?)))(\()</expression>
+				<capture number="3" name="operator.jQuery.object"/>
+				<capture number="4" name="delimiter.js.period"/>
+				<capture number="5" name="function.name"/>
+				<capture number="7" name="delimiter.js.period"/>
+				<capture number="8" name="function.name"/>
+				<capture number="16" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+				
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.event.object">
+			<expression>(event)(\.)(currentTarget|data|is(DefaultPrevented|PropagationStopped)?|namespace|page(X|Y)?|preventDefault|relatedTarget|result|stop(ImmediatePropagation|Propagation)?|target|timeStamp|type|which)</expression>
+			<capture number="1" name="variable"/>
+			<capture number="2" name="delimiter.js.period"/>
+			<capture number="3" name="jQuery.event"/>
+		</zone>
+		<zone name="identifier.jQuery.internals.object">
+			<expression>(((\$)(\.)(error))|((\.)(context|jquery)))</expression>
+			<capture number="3" name="operator.jQuery.object"/>
+			<capture number="4" name="delimiter.js.period"/>
+			<capture number="5" name="jQuery.object"/>
+			<capture number="7" name="delimiter.js.period"/>
+			<capture number="8" name="jQuery.object"/>
+		</zone>
+		<zone name="identifier.jQuery.internals.function">
+			<starts-with>
+				<expression>(\.)(pushStack)(\()</expression>
+				<capture number="1" name="delimiter.js.period"/>
+				<capture number="2" name="function.name"/>
+				<capture number="3" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.manipulation.function">
+			<starts-with>
+				<expression>(\.)(after|append(To)?|before|clone|detach|empty|insert(After|Before)+|prepend(To)?|remove|replace(With|All)+|text|unwrap|wrap(All|Inner)?)(\()</expression>
+				<capture number="1" name="delimiter.js.period"/>
+				<capture number="2" name="function.name"/>
+				<capture number="8" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.miscellaneous.function">
+			<starts-with>
+				<expression>(\.)(each|get|index|size|toArray)(\()</expression>
+				<capture number="1" name="delimiter.js.period"/>
+				<capture number="2" name="function.name"/>
+				<capture number="3" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.offset.function">
+			<starts-with>
+				<expression>(\.)(offsetParent)(\()</expression>
+				<capture number="1" name="delimiter.js.period"/>
+				<capture number="2" name="function.name"/>
+				<capture number="3" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.properties.object">
+			<expression>(((\$)(\.)(browser|support))|((\.)(length)))</expression>
+			<capture number="1" name="operator.jQuery.object"/>
+			<capture number="2" name="delimiter.js.period"/>
+			<capture number="3" name="jQuery.object"/>
+			<capture number="5" name="delimiter.js.period"/>
+			<capture number="6" name="jQuery.object"/>
+			<subzones>
+				<include syntax="language-root.js" collection="strings"/>
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.traversing.function">
+			<starts-with>
+				<expression>(\.)(andSelf|children|closest|contents|end|eq|filter|find|first|has|is|last|map|next(All|Until)?|not|parent(s|sUntil)?|prev(All|Until)?|siblings|slice)(\()</expression>
+				<capture number="1" name="delimiter.js.period"/>
+				<capture number="2" name="function.name"/>
+				<capture number="6" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include collection="delimiter.jQuery"/>
+				<include collection="literal.string.jQuery"/>
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.utilities.function">
+			<starts-with>
+				<expression>(\$)(\.)(contains|each|extend|globalEval|grep|(in|make)+Array|is(Array|EmptyObject|Function|Numeric|PlainObject|Window|XMLDoc)+|map|merge|now|parse(JSON|XML)+|trim|type|unique)(\()</expression>
+				<capture number="1" name="operator.jQuery.object"/>
+				<capture number="2" name="delimiter.js.period"/>
+				<capture number="3" name="function.name"/>
+				<capture number="7" name="delimiter.js.parenthesis.open"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+				<capture number="0" name="delimiter.js.parenthesis.close"/>
+			</ends-with>
+			<subzones>
+				<include syntax="self"/>
+				<include syntax="language-root.js" collection="strings"/>
+				<include collection="delimiter.jQuery"/>
+			</subzones>
+		</zone>
+		<zone name="identifier.jQuery.utilities.object">
+			<expression>(\$)(\.)(boxModel|browser|)</expression>
+			<capture number="1" name="operator.jQuery.object"/>
+			<capture number="2" name="delimiter.js.period"/>
+			<capture number="3" name="jQuery.object"/>
+		</zone>
+	</zones>
+	<library>
+		<collection name="delimiter.jQuery">
+			<zone name="delimiter.jQuery.comma">
+				<expression>,</expression>
+			</zone>
+			<zone name="delimiter.jQuery.curly-brace.open">
+				<expression>{</expression>
+			</zone>
+			<zone name="delimiter.jQuery.curly-brace.close">
+				<expression>}</expression>
+			</zone>
+		</collection>
+		<collection name="selectors.jQuery">
+			<zone name="operator.selector.jQuery.id">
+				<expression>(#)([a-zA-Z-_0-9]*)</expression>
+				<capture number="1" name="operator.hash"/>
+				<capture number="2" name="id.name"/>
+			</zone>
+			<zone name="operator.selector.jQuery.class">
+				<expression>(\.)([a-zA-Z-_0-9]*)</expression>
+				<capture number="1" name="operator.hash"/>
+				<capture number="2" name="class.name"/>
+			</zone>
+			<zone name="operator.selector.jQuery.child">
+				<expression>\&gt;</expression>
+			</zone>
+			<zone name="operator.selector.jQuery.next">
+				<expression>\+</expression>
+			</zone>
+			<zone name="operator.selector.jQuery.sibling">
+				<expression>\~</expression>
+			</zone>
+			<zone name="operator.selector.jQuery.child.filter.parameters">
+				<starts-with>
+					<expression>(:(nth-child)\()</expression>
+					<capture number="2" name="filter.name"/>
+				</starts-with>
+				<ends-with>
+					<expression>(\))</expression>
+				</ends-with>
+				<subzones>
+					<include collection="selectors.jQuery"/>
+				</subzones>
+			</zone>
+			<zone name="operator.selector.jQuery.child.filter">
+				<expression>:((first|last|only)-child)</expression>
+				<capture number="1" name="filter.name"/>
+			</zone>
+			<zone name="operator.selector.jQuery.basic.filter.parameters">
+				<starts-with>
+					<expression>(:(not|eq|gt|lt)\()</expression>
+					<capture number="2" name="filter.name"/>
+				</starts-with>
+				<ends-with>
+					<expression>(\))</expression>
+				</ends-with>
+				<subzones>
+					<include collection="selectors.jQuery"/>
+				</subzones>
+			</zone>
+			<zone name="operator.selector.jQuery.basic.filter">
+				<expression>:(first|last|even|odd|header|animated)</expression>
+				<capture number="1" name="filter.name"/>
+			</zone>
+			<zone name="operator.selector.jQuery.content.filter.parameters">
+				<starts-with>
+					<expression>(:(contains|has)\()</expression>
+					<capture number="2" name="filter.name"/>
+				</starts-with>
+				<ends-with>
+					<expression>(\))</expression>
+				</ends-with>
+				<subzones>
+					<include collection="selectors.jQuery"/>
+				</subzones>
+			</zone>
+			<zone name="operator.selector.jQuery.content.filter">
+				<expression>:(empty|parent)</expression>
+				<capture number="1" name="filter.name"/>
+			</zone>
+			<zone name="operator.selector.jQuery.visibility.filter">
+				<expression>:(hidden|visible)</expression>
+				<capture number="1" name="filter.name"/>
+			</zone>
+			<zone name="operator.selector.jQuery.form.filter">
+				<expression>:(input|text|password|radio|checkbox|submit|image|reset|button|file|hidden|enabled|disabled|checked|selected)</expression>
+				<capture number="1" name="filter.name"/>
+			</zone>
+			<zone name="operator.selector.jQuery.attribute.filter">
+				<expression>(\[)([a-zA-Z]*)((\^)|(\$)|(\*))(=)([a-zA-Z0-9-_]*)(\])</expression>
+				<capture number="1" name="delimiter.bracket.open"/>
+				<capture number="2" name="attribute.name"/>
+				<capture number="4" name="operator.starts-with"/>
+				<capture number="5" name="operator.ends-with"/>
+				<capture number="6" name="operator.contains"/>
+				<capture number="7" name="operator.equals"/>
+				<capture number="8" name="value"/>
+				<capture number="9" name="delimiter.bracket.close"/>
+			</zone>
+			<zone name="operator.selector.jQuery.element">
+				<expression>[a-zA-Z]+</expression>
+				<capture number="0" name="element.name"/>
+			</zone>
+		</collection>
+		<collection name="literal.string.jQuery">
+			<zone name="literal.string.quoted.single">
+				<starts-with>
+					<expression>'</expression>
+					<capture number="0" name="delimiter.balanced.quote.single.begin"/>
+				</starts-with>
+				<ends-with>
+					<expression>'</expression>
+					<capture number="0" name="delimiter.balanced.quote.single.end"/>
+				</ends-with>
+				<subzones>
+					<include collection="selectors.jQuery" />
+					<zone name="literal.escape.brief">
+						<!-- 'A single-quoted string with \'escape sequences\'' -->
+						<expression>(\\)('|\\)</expression>
+						<capture number="1" name="delimiter.seperator.escape"/>
+						<capture number="2" name="character"/>
+					</zone>
+				</subzones>
+			</zone>
+			<zone name="literal.string.quoted.double">
+				<starts-with>
+					<expression>"</expression>
+					<capture number="0" name="delimiter.balanced.quote.double.begin"/>
+				</starts-with>
+				<ends-with>
+					<expression>"</expression>
+					<capture number="0" name="delimiter.balanced.quote.double.begin"/>
+				</ends-with>
+				<subzones>
+					<include collection="selectors.jQuery" />
+					<zone name="literal.escape.brief">
+						<!-- 'A single-quoted string with \'escape sequences\'' -->
+						<expression>(\\)("|\\)</expression>
+						<capture number="1" name="delimiter.seperator.escape"/>
+						<capture number="2" name="character"/>
+					</zone>
+				</subzones>
+			</zone>
+		</collection>
+	</library>
 </syntax>

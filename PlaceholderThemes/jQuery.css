@@ -3,12 +3,8 @@
     @placeholder js
 */
 
-js, jQuery {
+js {
     spell-check: disabled;
-}
-
-variable.function {
-	font-weight: bold;
 }
 
 jQuery.object.operator {

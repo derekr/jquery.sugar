@@ -1,5 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <codesense version="1.0">
+	<!-- jQuery Callbacks: callbacks.jQueryCallback -->
+	<set name="com.whatupderek.sugar.jquery.api.jQueryCallbacks">
+		<!-- jQuery API: http://api.jquery.com/category +/group -->
+		<!-- Group: Callbacks -->
+		<completion string="add">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:callbacks}\)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="disable()"/>
+		<completion string="empty()"/>
+		<completion string="fire">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:args}\)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="fired()"/>
+		<completion string="fireWith">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:[context]}${2:, ${3:[args]}}\)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="has">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:callback}\)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="lock()"/>
+		<completion string="locked()"/>
+		<completion string="remove">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:callbacks}\)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+	</set>
 	<!-- jQuery Events: event.jQueryEvent -->
 	<set name="com.whatupderek.sugar.jquery.api.jQueryEvents">
 		<!-- jQuery API: http://api.jquery.com/category +/group -->
@@ -7,7 +57,6 @@
 		<completion string="currentTarget"/>
 		<completion string="data"/>
 		<completion string="isDefaultPrevented()"/>
-		<completion string="stopImmediatePropagation()"/>
 		<completion string="isPropagationStopped()"/>
 		<completion string="namespace"/>
 		<completion string="pageX"/>
@@ -87,6 +136,16 @@
 				<append-dynamic>
 					<matched-suffix>(\()|[^(]</matched-suffix>
 					<transform-into>(?1::(${1:url}${2:${3:, ${4:data}${5:, ${6:callback}${7:, ${8:type}}}}}\))</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<!-- jQuery API: http://api.jquery.com/category +/group -->
+		<!-- Group: Callbacks-object -->
+		<completion string="Callbacks">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\()|[^(]</matched-suffix>
+					<transform-into>(?1::(${1:flags}\)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -400,16 +459,6 @@
 				<append-dynamic>
 					<matched-suffix>(\()|[^(]</matched-suffix>
 					<transform-into>(?1::(${1:array}\)</transform-into>
-				</append-dynamic>
-			</behavior>
-		</completion>
-		<!-- jQuery API: http://api.jquery.com/category +/group -->
-		<!-- Group: Callbacks-object -->
-		<completion string="Callbacks">
-			<behavior>
-				<append-dynamic>
-					<matched-suffix>(\()|[^(]</matched-suffix>
-					<transform-into>(?1::(${1:flags}\)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -1246,7 +1295,7 @@
 			</behavior>
 		</completion>
 		<!-- jQuery API: http://api.jquery.com/category +/group -->
-		<!-- Group: Internals -->
+		<!-- Group: Manipulation -->
 		<completion string="after">
 			<behavior>
 				<append-dynamic>
