@@ -264,12 +264,10 @@
 			</behavior>
 		</completion>
 		<!-- jQuery API: http://api.jquery.com/category +/group -->
-		<!-- Group: Events -->
+		<!-- Group: Utilities -->
 		<completion string="browser"/>
 		<completion string="browser.version"/>
 		<completion string="support"/>
-		<!-- jQuery API: http://api.jquery.com/category +/group -->
-		<!-- Group: Events -->
 		<completion string="boxModel">
 			<behavior>
 				<append-dynamic>
@@ -1259,7 +1257,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\()|[^(]</matched-suffix>
-					<transform-into>(?1::(${1:${2:name}${3:, ${4:value}}}\))</transform-into>
+					transform-into>(?1::(${1:${2:[evType]}${3:, ${4:[handler|bool]}}}${5:${6: | }${7:[event]}}\))</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
