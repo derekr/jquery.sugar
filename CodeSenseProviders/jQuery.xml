@@ -13,7 +13,7 @@
 	<provider>
 		<selector>js, js *:not(string,string *,comment,regex,regex *)</selector>
 		<completions>com.whatupderek.sugar.jquery.api.jQueryEvents</completions>
-		<complete-match capture="1">(?:event)\.([a-zA-Z]*)</complete-match>
+		<complete-match capture="1">(?:event|e)\.([a-zA-Z]*)</complete-match>
 	</provider>
 	<provider>
 		<selector>js, js *:not(string,string *,comment,regex,regex *)</selector>
